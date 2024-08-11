@@ -31,6 +31,14 @@ public:
         }
     }
 
+    void removerValor(int l, int c) {
+        if (l >= 0 && l < linhas && c >= 0 && c < colunas) {
+            dados[l][c] = 0; // Define o valor padrão como 0
+        } else {
+            cout << "Índice fora dos limites!" << endl;
+        }
+    }
+
     void imprimir() const {
         for (int i = 0; i < linhas; ++i) {
             for (int j = 0; j < colunas; ++j) {
@@ -54,10 +62,13 @@ int main() {
     matriz.setValor(2, 1, 8);
     matriz.setValor(2, 2, 9);
 
-    cout << "Matriz:" << endl;
+    cout << "Matriz antes de remover:" << endl;
     matriz.imprimir();
 
-    cout << "Valor na posição (1, 1): " << matriz.getValor(1, 1) << endl;
+    matriz.removerValor(1, 1);
+
+    cout << "Matriz depois de remover o valor na posição (1, 1):" << endl;
+    matriz.imprimir();
 
     return 0;
 }
