@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{color}
+
+\title{Estruturas de Dados em C++}
+\author{Yan Sabarense}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introdução}
+Esta documentação descreve as implementações de várias estruturas de dados em C++, incluindo uma lista encadeada, uma pilha, uma fila, e uma matriz de inteiros. Além disso, discutimos como especificar um diretório de saída para os arquivos executáveis gerados após a compilação.
+
+\section{Lista Encadeada}
+Uma lista encadeada foi implementada para permitir a inclusão de elementos, verificação da existência de um elemento, e remoção de elementos específicos. 
+
+\subsection{Funções Implementadas}
+\begin{itemize}
+    \item \texttt{adicionarAluno}: Insere um novo aluno no final da lista.
+    \item \texttt{encontrarAluno}: Verifica se um aluno específico está na lista.
+    \item \texttt{removerAluno}: Remove um aluno da lista com base na matrícula.
+    \item \texttt{imprimirLista}: Imprime todos os alunos na lista.
+\end{itemize}
+
+\section{Pilha}
+A pilha segue o conceito LIFO (Last In, First Out). Ela foi implementada com as funções principais necessárias para manipulação da estrutura.
+
+\subsection{Funções Implementadas}
+\begin{itemize}
+    \item \texttt{push}: Insere um elemento no topo da pilha.
+    \item \texttt{pop}: Remove e retorna o elemento do topo da pilha.
+    \item \texttt{peek}: Retorna o elemento do topo sem removê-lo.
+    \item \texttt{imprimir}: Imprime todos os elementos da pilha.
+\end{itemize}
+
+\section{Fila}
+A fila segue o conceito FIFO (First In, First Out). Implementamos as funções básicas para operar sobre a fila.
+
+\subsection{Funções Implementadas}
+\begin{itemize}
+    \item \texttt{enqueue}: Insere um elemento no final da fila.
+    \item \texttt{dequeue}: Remove e retorna o elemento do início da fila.
+    \item \texttt{peek}: Retorna o elemento do início sem removê-lo.
+    \item \texttt{imprimir}: Imprime todos os elementos da fila.
+\end{itemize}
+
+\section{Matriz de Inteiros}
+Uma matriz de inteiros foi implementada usando um vetor de vetores. As funções principais permitem o acesso e modificação dos elementos da matriz.
+
+\subsection{Funções Implementadas}
+\begin{itemize}
+    \item \texttt{setValor}: Define o valor de uma célula específica da matriz.
+    \item \texttt{getValor}: Retorna o valor de uma célula específica.
+    \item \texttt{imprimir}: Imprime todos os elementos da matriz.
+\end{itemize}
+
+\section{Conclusão}
+Este documento cobriu a implementação de várias estruturas de dados em C++ e explicou como definir o diretório de saída para os arquivos executáveis gerados pela compilação. Essas implementações e configurações são fundamentais para a organização e funcionalidade eficaz do código.
+
+\end{document}
