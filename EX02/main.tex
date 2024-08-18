@@ -1,0 +1,109 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\title{Gerador de Subgrafos}
+\author{Yan Sabarense}
+\date{\today}
+
+\lstset{ 
+    language=C++,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=10pt,
+    showspaces=false,
+    showstringspaces=false,
+    breaklines=true,
+    tabsize=4
+}
+
+\begin{document}
+
+\maketitle
+
+\section{Introdução}
+
+Este documento descreve o código C++ que gera todos os subgrafos possíveis de um grafo completo com um número dado de vértices. O código também exibe o número total de subgrafos gerados e imprime cada subgrafo.
+
+\section{Descrição do Código}
+
+O código está dividido em duas partes principais: a função \texttt{gerarSubgrafos} e a função \texttt{main}. A seguir, descrevemos o funcionamento de cada uma dessas partes.
+
+\subsection{Função \texttt{gerarSubgrafos}}
+
+A função \texttt{gerarSubgrafos} é responsável por gerar e exibir todos os subgrafos de um grafo completo. Sua assinatura é:
+
+\begin{lstlisting}
+void gerarSubgrafos(int numeroVertices);
+\end{lstlisting}
+
+\subsubsection*{Parâmetros}
+
+\begin{itemize}
+    \item \textbf{numeroVertices} - Um número inteiro que representa a quantidade de vértices no grafo completo.
+\end{itemize}
+
+\subsubsection*{Funcionamento}
+
+1. **Cálculo do número de arestas**: O número de arestas de um grafo completo com \( n \) vértices é calculado pela fórmula:
+   \[
+   \text{totalArestas} = \frac{n(n-1)}{2}
+   \]
+   Esse cálculo é feito na linha:
+
+\begin{lstlisting}
+int totalArestas = (numeroVertices * (numeroVertices - 1)) / 2;
+\end{lstlisting}
+
+2. **Cálculo do número total de subgrafos**: O número total de subgrafos de um grafo completo é \( 2^{(\text{número de vértices} + \text{número de arestas})} \). Isso ocorre porque cada vértice e cada aresta pode estar presente ou ausente em um subgrafo. O cálculo é feito da seguinte forma:
+
+\begin{lstlisting}
+int totalSubgrafos = 1 << (totalVertices + totalArestas);
+\end{lstlisting}
+
+3. **Geração dos subgrafos**: Utilizando um loop, o código gera todos os possíveis subgrafos iterando sobre cada combinação de vértices e arestas. O subgrafo atual é representado por um número binário, onde cada bit indica se um vértice ou aresta está presente no subgrafo.
+
+4. **Impressão dos subgrafos**: A função imprime cada subgrafo, indicando quais vértices e arestas estão presentes.
+
+\subsection{Função \texttt{main}}
+
+A função \texttt{main} serve como ponto de entrada do programa. Ela solicita ao usuário o número de vértices do grafo e chama a função \texttt{gerarSubgrafos} para gerar e exibir os subgrafos.
+
+\begin{lstlisting}
+int main() {
+    int numeroVertices;
+    
+    cout << "Informe o número de vértices: ";
+    cin >> numeroVertices;
+
+    gerarSubgrafos(numeroVertices);
+
+    return 0;
+}
+\end{lstlisting}
+
+\subsection{Exemplo de Execução}
+
+Ao executar o programa e informar que o grafo completo tem 3 vértices, o programa exibirá o seguinte resultado:
+
+\begin{verbatim}
+Informe o número de vértices: 3
+Total de subgrafos: 64
+Subgrafo 1: { }
+Subgrafo 2: { v1 }
+Subgrafo 3: { v2 }
+Subgrafo 4: { v3 }
+...
+\end{verbatim}
+
+\section{Conclusão}
+
+Este código implementa um gerador de subgrafos de um grafo completo em C++. A partir do número de vértices informado pelo usuário, o programa calcula o número total de subgrafos possíveis e imprime cada subgrafo gerado. O código é eficiente para pequenos valores de \( n \), mas o número de subgrafos cresce exponencialmente com o aumento do número de vértices.
+
+\end{document}
