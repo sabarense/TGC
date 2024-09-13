@@ -1,2 +1,2 @@
 # TGC #
-Repositório de códigos da disciplina Teoria dos Grafos e Computabilidade
+Repositório de códigos da disciplina de Teoria dos Grafos e Computabilidade
