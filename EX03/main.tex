@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+
+\title{Dijkstra e Problemas de Min-Max e Max-Min}
+\author{Yan Sabarense}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introdução}
+
+O algoritmo de Dijkstra é um método eficiente para encontrar o caminho mais curto em um grafo com arestas de pesos positivos. Este documento descreve a teoria por trás do algoritmo e suas variações para resolver os problemas de min-max e max-min de gargalos em grafos, com uma descrição das funções principais utilizadas na implementação.
+
+\section{Algoritmo de Dijkstra}
+
+O algoritmo de Dijkstra calcula o caminho mais curto entre um nó inicial e todos os outros nós de um grafo, utilizando uma fila de prioridade para selecionar o próximo nó a ser processado com a menor distância conhecida. 
+
+\subsection{Função \texttt{dijkstra}}
+
+Esta função é responsável por:
+
+\begin{itemize}
+    \item Inicializar a distância de todos os nós como infinita, exceto o nó inicial, cuja distância é zero.
+    \item Utilizar uma fila de prioridade para expandir os nós de acordo com a menor distância acumulada.
+    \item Atualizar as distâncias dos nós adjacentes se um caminho mais curto for encontrado.
+\end{itemize}
+
+\section{Problema de Min-Max Gargalo}
+
+Para minimizar o maior peso de uma aresta em um caminho, adaptamos o algoritmo de Dijkstra para priorizar caminhos que minimizem o maior peso entre as arestas.
+
+\subsection{Função \texttt{dijkstra\_min\_max}}
+
+Esta função é uma variação da função original de Dijkstra e:
+
+\begin{itemize}
+    \item Calcula o caminho com o menor valor máximo de aresta.
+    \item Atualiza os pesos usando a função \texttt{max()} para garantir que o maior peso no caminho seja o menor possível.
+    \item Expande os nós de acordo com essa lógica, sempre priorizando o caminho que minimiza o peso máximo.
+\end{itemize}
+
+\section{Problema de Max-Min Gargalo}
+
+Para maximizar o menor peso de uma aresta em um caminho, modificamos o algoritmo de Dijkstra para utilizar a função \texttt{min()} ao atualizar o peso de cada caminho.
+
+\subsection{Função \texttt{dijkstra\_max\_min}}
+
+Esta função visa:
+
+\begin{itemize}
+    \item Calcular o caminho que maximiza o menor valor de aresta presente.
+    \item Utilizar a função \texttt{min()} para preservar a maior capacidade mínima possível entre os caminhos.
+    \item Expandir os nós priorizando aqueles que mantêm o maior valor mínimo.
+\end{itemize}
+
+\section{Conclusão}
+
+O algoritmo de Dijkstra e suas variações são ferramentas essenciais para resolver problemas de caminhos mínimos e de otimização em grafos. A capacidade de adaptar o algoritmo para cenários de min-max e max-min é particularmente útil para aplicações que envolvem a maximização ou minimização de gargalos em redes de transporte ou comunicação, por exemplo.
+
+\end{document}
